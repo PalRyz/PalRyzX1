@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PalRyzX Script Hub — Premium Roblox Execution Gateway</title>
+    <meta name="description" content="PalRyzX Script Hub — The most advanced and secure script hub for Roblox executors. High performance, undetected, and frequently updated scripts.">
+    <meta name="keywords" content="PalRyzX, Roblox Script, Delta Executor, Codex, Fluxus, Arceus X, Script Hub, Lua Scripting">
+    <meta name="author" content="PalRyzX Developer">
+    <meta name="theme-color" content="#0a0a12">
+
+    <!-- OpenGraph / Social Media Meta -->
+    <meta property="og:title" content="PalRyzX Script Hub — Premium Execution Script">
+    <meta property="og:description" content="Unlock premium scripts for your favorite games. 100% Undetected, frequent updates, and fast execution.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://palryzx-script-hub.web.app/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- PWA Manifest & Favicon simulation -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    
+    <!-- Google Fonts: Outfit & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Prism.js Syntax Highlighter & Line Numbers -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+    <!-- Canvas Confetti for celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <style>
+        :root {
+            --font-main: 'Outfit', sans-serif;
+            --font-code: 'JetBrains Mono', monospace;
+            --neon-blue: #00f0ff;
+            --neon-purple: #a855f7;
+            --neon-pink: #ec4899;
+            --bg-dark: #07070d;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: #f3f4f6;
+            overflow-x: hidden;
+            selection-background-color: #38bdf8;
+            selection-color: #000;
+        }
+
+        code, pre, .font-code {
+            font-family: var(--font-code);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0e17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(15, 17, 30, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(25, 28, 48, 0.6) 0%, rgba(13, 15, 27, 0.7) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 10px 40px -10px rgba(0, 240, 255, 0.2);
+        }
+
+        /* Neon Glow Effects */
+        .glow-text-blue {
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+        .glow-text-purple {
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.6), 0 0 20px rgba(168, 85, 247, 0.3);
+        }
+        .glow-box-blue {
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.25);
+        }
+        .glow-box-purple {
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.25);
+        }
+
+        /* Aurora Gradient Background Animation */
+        .aurora-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            overflow: hidden;
+            pointer-events: none;
+            background: #05050b;
+        }
+        .aurora-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.35;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, #00f0ff, #3b82f6);
+            animation-duration: 25s;
+        }
+        .blob-2 {
+            bottom: -15%;
+            right: -10%;
+            width: 55vw;
+            height: 55vw;
+            background: radial-gradient(circle, #a855f7, #6366f1);
+            animation-duration: 22s;
+            animation-delay: -5s;
+        }
+        .blob-3 {
+            top: 40%;
+            left: 50%;
+            width: 45vw;
+            height: 45vw;
+            background: radial-gradient(circle, #ec4899, #8b5cf6);
+            transform: translate(-50%, -50%);
+            animation-duration: 28s;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(5%, 8%) scale(1.08); }
+            66% { transform: translate(-6%, 3%) scale(0.95); }
+            100% { transform: translate(2%, -5%) scale(1.03); }
+        }
+
+        /* Custom Desktop Cursor */
+        @media (pointer: fine) {
+            body {
+                cursor: none;
+            }
+            .cursor-dot {
+                width: 8px;
+                height: 8px;
+                background-color: var(--neon-blue);
+                position: fixed;
+                top: 0;
+                left: 0;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate(-50%, -50%);
+                transition: width 0.15s, height 0.15s, background-color 0.15s;
+                box-shadow: 0 0 10px var(--neon-blue);
+            }
+            .cursor-ring {
+                width: 32px;
+                height: 32px;
+                border: 1.5px solid rgba(0, 240, 255, 0.5);
+                position: fixed;
+                top: 0;
+                left: 0;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9998;
+                transform: translate(-50%, -50%);
+                transition: width 0.2s, height 0.2s, border-color 0.2s, background-color 0.2s;
+            }
+            .cursor-hover .cursor-dot {
+                width: 12px;
+                height: 12px;
+                background-color: var(--neon-purple);
+                box-shadow: 0 0 15px var(--neon-purple);
+            }
+            .cursor-hover .cursor-ring {
+                width: 50px;
+                height: 50px;
+                border-color: var(--neon-purple);
+                background-color: rgba(168, 85, 247, 0.1);
+            }
+        }
+
+        /* Ripple Effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple-span {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-anim 0.6s linear;
+            background-color: rgba(255, 255, 255, 0.35);
+            pointer-events: none;
+        }
+        @keyframes ripple-anim {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Pulse Animation for status dot */
+        @keyframes pulse-green {
+            0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 8px #22c55e; }
+            50% { transform: scale(1.2); opacity: 0.7; box-shadow: 0 0 16px #22c55e; }
+        }
+        .pulse-dot {
+            animation: pulse-green 2s infinite ease-in-out;
+        }
+
+        /* Skeleton Loading */
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.04) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Prism override styles for custom dark UI */
+        pre[class*="language-"] {
+            background: rgba(8, 10, 18, 0.85) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: 0.75rem !important;
+            margin: 0 !important;
+            padding: 1.25rem !important;
+            font-size: 0.875rem !important;
+            line-height: 1.6 !important;
+            max-height: 520px;
+            overflow-y: auto !important;
+        }
+        .line-numbers .line-numbers-rows {
+            border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        /* Animated Progress bar stripe */
+        .progress-striped {
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+            background-size: 1rem 1rem;
+            animation: progress-stripes 1s linear infinite;
+        }
+        @keyframes progress-stripes {
+            0% { background-position: 1rem 0; }
+            100% { background-position: 0 0; }
+        }
+
+        /* Shimmer button animation */
+        .btn-shimmer {
+            background: linear-gradient(110deg, #00f0ff 0%, #a855f7 50%, #00f0ff 100%);
+            background-size: 200% 100%;
+            animation: shimmer 4s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 0%; }
+            100% { background-position: -200% 0%; }
+        }
+
+        /* SPA Page View Architecture Styling */
+        .page-view {
+            transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
+        }
+        .page-enter {
+            animation: page-fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes page-fade-in {
+            0% { opacity: 0; transform: translateY(16px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .nav-active {
+            color: var(--neon-blue) !important;
+            font-weight: 700 !important;
+            position: relative;
+        }
+        .nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00f0ff, #a855f7);
+            border-radius: 2px;
+            box-shadow: 0 0 10px #00f0ff;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative">
+
+    <!-- Custom Desktop Cursor Elements -->
+    <div id="cursor-dot" class="cursor-dot hidden md:block"></div>
+    <div id="cursor-ring" class="cursor-ring hidden md:block"></div>
+
+    <!-- Background Aurora Blobs -->
+    <div class="aurora-bg">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+    </div>
+
+    <!-- Interactive Background Particle Canvas -->
+    <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-[-1] opacity-70"></canvas>
+
+    <!-- PREMIUM STARTUP LOADING SCREEN -->
+    <div id="startup-loader" class="fixed inset-0 z-50 bg-[#05050c] flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="relative mb-8">
+            <div class="w-24 h-24 rounded-full border-4 border-cyan-500/20 border-t-cyan-400 animate-spin"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <i data-lucide="zap" class="w-10 h-10 text-cyan-400 animate-pulse"></i>
+            </div>
+            <div class="absolute -inset-2 rounded-full bg-cyan-500/10 blur-xl animate-pulse"></div>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 mb-2 glow-text-blue">
+            PALRYZX SCRIPT HUB
+        </h2>
+        <p class="text-gray-400 text-sm font-code mb-6 animate-pulse" id="boot-status-text">Initializing Security Gateway & Core Buffers...</p>
+        <div class="w-64 bg-gray-800/80 rounded-full h-1.5 overflow-hidden p-0.5 border border-white/10">
+            <div id="boot-progress-bar" class="bg-gradient-to-r from-cyan-400 to-purple-500 h-full rounded-full w-0 transition-all duration-300"></div>
+        </div>
+        <p class="text-xs text-gray-600 mt-4 font-code">v3.8.5 Pro Edition • Build 2026.03</p>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed top-6 right-6 z-50 flex flex-col gap-3 pointer-events-none max-w-sm w-full"></div>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="sticky top-0 z-30 glass border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group hover-trigger">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <i data-lucide="terminal" class="w-5 h-5 text-white"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-2">
+                        PalRyzX <span class="text-xs px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 text-cyan-300 font-code font-normal">PRO</span>
+                    </span>
+                    <span class="text-xs text-gray-400 font-code block -mt-1">Script Hub & Execution Gateway</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation (SPA Halaman Terpisah) -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+                <button onclick="showPage('home')" id="nav-home" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors hover-trigger nav-active flex items-center gap-1.5"><i data-lucide="home" class="w-4 h-4"></i> Beranda</button>
+                <button onclick="showPage('gateway')" id="nav-gateway" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors hover-trigger flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4"></i> Gateway & Syarat</button>
+                <button onclick="showPage('viewer')" id="nav-viewer" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors hover-trigger flex items-center gap-1.5"><i data-lucide="code-2" class="w-4 h-4"></i> Script Viewer</button>
+                <button onclick="showPage('history')" id="nav-history" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors hover-trigger flex items-center gap-1.5"><i data-lucide="bookmark" class="w-4 h-4"></i> Favorit & Riwayat</button>
+                <button onclick="showPage('faq')" id="nav-faq" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors hover-trigger flex items-center gap-1.5"><i data-lucide="help-circle" class="w-4 h-4"></i> FAQ & Info</button>
+            </nav>
+
+            <!-- Navbar Actions -->
+            <div class="flex items-center gap-3">
+                <!-- Status Badge -->
+                <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-code">
+                    <span class="w-2 h-2 rounded-full bg-green-500 pulse-dot"></span>
+                    <span>System Online</span>
+                </div>
+
+                <!-- History / Favorites Button -->
+                <button onclick="showPage('history')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white transition-all hover-trigger relative" title="Riwayat & Favorit Script">
+                    <i data-lucide="bookmark" class="w-5 h-5"></i>
+                    <span id="fav-badge" class="absolute -top-1 -right-1 w-4 h-4 bg-purple-500 text-[10px] text-white rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300">
+                    <i data-lucide="menu" id="mobile-menu-icon" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden hidden glass border-b border-white/10 px-6 py-4 space-y-3 font-code">
+            <button onclick="showPage('home'); toggleMobileMenu();" id="mob-home" class="block w-full text-left py-2 text-cyan-400 font-bold flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Beranda</button>
+            <button onclick="showPage('gateway'); toggleMobileMenu();" id="mob-gateway" class="block w-full text-left py-2 text-gray-300 hover:text-cyan-400 flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4"></i> Gateway & Syarat</button>
+            <button onclick="showPage('viewer'); toggleMobileMenu();" id="mob-viewer" class="block w-full text-left py-2 text-gray-300 hover:text-cyan-400 flex items-center gap-2"><i data-lucide="code-2" class="w-4 h-4"></i> Script Viewer</button>
+            <button onclick="showPage('history'); toggleMobileMenu();" id="mob-history" class="block w-full text-left py-2 text-gray-300 hover:text-cyan-400 flex items-center gap-2"><i data-lucide="bookmark" class="w-4 h-4"></i> Favorit & Riwayat</button>
+            <button onclick="showPage('faq'); toggleMobileMenu();" id="mob-faq" class="block w-full text-left py-2 text-gray-300 hover:text-cyan-400 flex items-center gap-2"><i data-lucide="help-circle" class="w-4 h-4"></i> FAQ & Developer</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA (SPA HALAMAN TERPISAH) -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10 w-full" id="main-container">
+
+        <!-- ========================================================================= -->
+        <!-- HALAMAN 1: BERANDA (#page-home) -->
+        <!-- ========================================================================= -->
+        <div id="page-home" class="page-view space-y-20">
+
+            <!-- HERO SECTION & SCRIPT CARD -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-6">
+            <!-- Left Hero Info -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-code font-semibold animate-bounce">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-400"></i>
+                    <span>THE NEXT GENERATION ROBLOX SCRIPT HUB</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-none text-white">
+                    Unlock Premium <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 glow-text-blue">
+                        PalRyzX Execution
+                    </span>
+                </h1>
+
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                    Designed for peak performance, 100% undetected safety bypass, and seamless execution across mobile and desktop executors. One universal hub script for all top games.
+                </p>
+
+                <!-- Live Status & Stats Ticker -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 max-w-xl mx-auto lg:mx-0 font-code">
+                    <div class="glass-card p-3 rounded-xl text-center border border-white/10">
+                        <span class="text-xs text-gray-400 block mb-1">Version</span>
+                        <span class="text-sm font-bold text-cyan-400 flex items-center justify-center gap-1">
+                            <i data-lucide="git-branch" class="w-3.5 h-3.5"></i>
+                            <span id="stat-version">v3.8.5 Pro</span>
+                        </span>
+                    </div>
+                    <div class="glass-card p-3 rounded-xl text-center border border-white/10">
+                        <span class="text-xs text-gray-400 block mb-1">Last Update</span>
+                        <span class="text-sm font-bold text-purple-400" id="stat-update">Today</span>
+                    </div>
+                    <div class="glass-card p-3 rounded-xl text-center border border-white/10">
+                        <span class="text-xs text-gray-400 block mb-1">Downloads</span>
+                        <span class="text-sm font-bold text-emerald-400" id="stat-downloads">14,892</span>
+                    </div>
+                    <div class="glass-card p-3 rounded-xl text-center border border-white/10">
+                        <span class="text-xs text-gray-400 block mb-1">Script Copies</span>
+                        <span class="text-sm font-bold text-pink-400" id="stat-copies">32,410</span>
+                    </div>
+                </div>
+
+                <!-- Call To Action Buttons -->
+                <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 pt-4">
+                    <button onclick="initiateScriptAccess()" class="w-full sm:w-auto px-7 py-4 rounded-2xl btn-shimmer text-black font-extrabold text-base shadow-xl shadow-cyan-500/25 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2.5 ripple hover-trigger">
+                        <i data-lucide="key" class="w-5 h-5"></i>
+                        <span>Get Script Now</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                    
+                    <button onclick="openExternalWebsite()" class="w-full sm:w-auto px-6 py-4 rounded-2xl bg-gradient-to-r from-purple-600/30 to-pink-600/30 hover:from-purple-600/50 hover:to-pink-600/50 border border-purple-500/30 text-purple-200 font-semibold text-base transition-all flex items-center justify-center gap-2 hover-trigger shadow-lg shadow-purple-500/10">
+                        <i data-lucide="external-link" class="w-5 h-5 text-purple-400"></i>
+                        <span id="hero-btn-redirect">Menuju Website Lain</span>
+                    </button>
+
+                    <button onclick="showPage('faq')" class="w-full sm:w-auto px-6 py-4 rounded-2xl glass hover:bg-white/10 text-white font-semibold text-base transition-all flex items-center justify-center gap-2 hover-trigger cursor-pointer">
+                        <i data-lucide="help-circle" class="w-5 h-5 text-gray-400"></i>
+                        <span>How To Use</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Hero Preview Card (Locked Script Teaser) -->
+            <div class="lg:col-span-5 relative">
+                <!-- Glowing Backer -->
+                <div class="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl -z-10 animate-pulse"></div>
+
+                <div class="glass-card rounded-2xl border border-white/15 overflow-hidden shadow-2xl relative group">
+                    <!-- Card Header -->
+                    <div class="bg-[#0b0d17]/90 px-4 py-3 border-b border-white/10 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                            <span class="ml-2 text-xs font-code text-gray-400">PalRyzX_Hub_Loader.lua</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-code text-cyan-400">
+                            <i data-lucide="shield-check" class="w-4 h-4"></i>
+                            <span>Protected Gateway</span>
+                        </div>
+                    </div>
+
+                    <!-- Blurred Preview Code -->
+                    <div class="p-6 relative font-code text-xs text-gray-300 leading-relaxed bg-[#070912]/90 min-h-[340px] select-none">
+                        <!-- Code lines with varying blur/opacity -->
+                        <div class="opacity-40">
+                            <span class="text-yellow-300">loadstring</span>(<span class="text-green-300">game:GetService("HttpService"):GetAsync</span>(<span class="text-green-300">"https://pastebin.com/raw/LREU9AkW"</span>))()<br>
+                            <span class="text-purple-400">local</span> <span class="text-cyan-300">PalRyzX_Engine</span> = <span class="text-yellow-300">loadstring</span>(<span class="text-green-300">game:HttpGet</span>(<span class="text-green-300">"https://pastebin.com/raw/LREU9AkW"</span>))()<br>
+                            <span class="text-purple-400">local</span> <span class="text-cyan-300">Window</span> = <span class="text-cyan-300">PalRyzX_Engine</span>:<span class="text-blue-400">CreateWindow</span>({<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Title = <span class="text-green-300">"⚡ PalRyzX Universal Hub v3.8"</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Theme = <span class="text-green-300">"CyberNeon"</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;KeySystem = <span class="text-purple-400">false</span><br>
+                            })<br>
+                        </div>
+                        <div class="blur-sm opacity-60 mt-2">
+                            <span class="text-purple-400">local</span> <span class="text-cyan-300">MainTab</span> = <span class="text-cyan-300">Window</span>:<span class="text-blue-400">CreateTab</span>(<span class="text-green-300">"🚀 Main Features"</span>)<br>
+                            <span class="text-cyan-300">MainTab</span>:<span class="text-blue-400">CreateToggle</span>({<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Name = <span class="text-green-300">"Auto Farm Boss & Mobs [Undetected]"</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Default = <span class="text-purple-400">true</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Callback = <span class="text-purple-400">function</span>(val)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-gray-400">-- [ENCRYPTED PALRYZX PAYLOAD BUFFER] --</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">end</span><br>
+                            })<br>
+                            <span class="text-cyan-300">MainTab</span>:<span class="text-blue-400">CreateSlider</span>({ Name = <span class="text-green-300">"Speed Multiplier"</span>, Min = <span class="text-orange-400">16</span>, Max = <span class="text-orange-400">500</span> })<br>
+                        </div>
+
+                        <!-- OVERLAY LOCK BADGE -->
+                        <div class="absolute inset-0 bg-[#070912]/80 backdrop-blur-[6px] flex flex-col items-center justify-center text-center p-6 space-y-4">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-xl shadow-cyan-500/20 animate-bounce">
+                                <i data-lucide="lock" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-1">Script Encrypted & Locked</h3>
+                                <p class="text-xs text-gray-400 max-w-xs">
+                                    Selesaikan verifikasi singkat untuk mendapatkan full access script dari server pribadi PalRyzX.
+                                </p>
+                            </div>
+                            <button onclick="initiateScriptAccess()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-xs shadow-lg shadow-cyan-500/30 transition-all ripple hover-trigger">
+                                Buka Kunci Script <span class="ml-1">→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Footer Info -->
+                    <div class="bg-[#0b0d17] px-4 py-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400 font-code">
+                        <span>Status: <strong class="text-green-400">Safe / No Ban Risk</strong></span>
+                        <span>HTTP GET Server</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXECUTOR COMPATIBILITY SECTION -->
+        <section id="executors" class="space-y-8 pt-10">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-xs font-code uppercase tracking-widest text-cyan-400 font-semibold">Universal Compatibility</span>
+                <h2 class="text-3xl font-extrabold text-white">Supported Roblox Executors</h2>
+                <p class="text-sm text-gray-400">
+                    PalRyzX Script Hub has been thoroughly benchmarked and tested on the most popular PC and Android mobile execution engines.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Delta -->
+                <div class="glass-card p-5 rounded-2xl border border-white/10 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 mx-auto flex items-center justify-center text-cyan-400 mb-3">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm mb-1">Delta Executor</h4>
+                    <span class="inline-block px-2 py-0.5 rounded text-[10px] bg-green-500/20 text-green-300 font-code">100% Working</span>
+                </div>
+                <!-- Codex -->
+                <div class="glass-card p-5 rounded-2xl border border-white/10 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 mx-auto flex items-center justify-center text-purple-400 mb-3">
+                        <i data-lucide="code-2" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm mb-1">Codex Mobile</h4>
+                    <span class="inline-block px-2 py-0.5 rounded text-[10px] bg-green-500/20 text-green-300 font-code">100% Working</span>
+                </div>
+                <!-- Fluxus -->
+                <div class="glass-card p-5 rounded-2xl border border-white/10 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 mx-auto flex items-center justify-center text-blue-400 mb-3">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm mb-1">Fluxus</h4>
+                    <span class="inline-block px-2 py-0.5 rounded text-[10px] bg-green-500/20 text-green-300 font-code">100% Working</span>
+                </div>
+                <!-- Arceus X -->
+                <div class="glass-card p-5 rounded-2xl border border-white/10 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 mx-auto flex items-center justify-center text-pink-400 mb-3">
+                        <i data-lucide="flame" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm mb-1">Arceus X NEO</h4>
+                    <span class="inline-block px-2 py-0.5 rounded text-[10px] bg-green-500/20 text-green-300 font-code">100% Working</span>
+                </div>
+                <!-- Hydrogen -->
+                <div class="glass-card p-5 rounded-2xl border border-white/10 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 mx-auto flex items-center justify-center text-emerald-400 mb-3">
+                        <i data-lucide="droplet" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm mb-1">Hydrogen</h4>
+                    <span class="inline-block px-2 py-0.5 rounded text-[10px] bg-green-500/20 text-green-300 font-code">100% Working</span>
+                </div>
+                <!-- Evon / Solara -->
+                <div class="glass-card p-5 rounded-2xl border border-white/10 text-center hover:scale-105 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 mx-auto flex items-center justify-center text-amber-400 mb-3">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm mb-1">Solara / PC</h4>
+                    <span class="inline-block px-2 py-0.5 rounded text-[10px] bg-green-500/20 text-green-300 font-code">Supported</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES GRID SECTION -->
+        <section id="features" class="space-y-8 pt-10">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-xs font-code uppercase tracking-widest text-purple-400 font-semibold">Why PalRyzX Stands Out</span>
+                <h2 class="text-3xl font-extrabold text-white">Engineered For Domination</h2>
+                <p class="text-sm text-gray-400">
+                    Built from scratch with clean modular Lua architecture, anti-detection techniques, and cloud-hosted instant deployment.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 space-y-4 hover:border-cyan-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                        <i data-lucide="cloud-lightning" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Cloud HTTP GET Delivery</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Scripts are retrieved in real-time from our secure server. Whenever we update the script, you get the latest version instantly without redownloading.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 space-y-4 hover:border-purple-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                        <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">100% Anti-Detection Bypass</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Features secure hook functions and obfuscated memory pointers to prevent Byfron and anticheat triggers during heavy gameplay.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 space-y-4 hover:border-emerald-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                        <i data-lucide="sliders" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Universal Auto Farm & ESP</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        One unified hub script supporting Blox Fruits, King Legacy, Pet Simulator 99, Blade Ball, Arsenal, and 50+ other games automatically.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home CTA Banner -->
+        <div class="glass-card rounded-3xl p-8 md:p-12 border border-cyan-500/30 text-center space-y-6 relative overflow-hidden mt-12">
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <h3 class="text-3xl font-black text-white max-w-xl mx-auto">Siap Memperkuat Gameplay Roblox Anda Sekarang?</h3>
+            <p class="text-gray-300 max-w-md mx-auto text-sm">Masuk ke Halaman Gateway Keamanan kami untuk memverifikasi akses gratis atau langsung menuju ke website eksternal.</p>
+            <div class="flex flex-wrap justify-center gap-4 pt-2">
+                <button onclick="showPage('gateway')" class="px-8 py-4 rounded-2xl btn-shimmer text-black font-extrabold text-base shadow-xl shadow-cyan-500/30 hover:scale-105 transition-all flex items-center gap-2">
+                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    <span>Buka Gateway Keamanan →</span>
+                </button>
+                <button onclick="openExternalWebsite()" class="px-6 py-4 rounded-2xl bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 text-purple-300 font-bold transition-all flex items-center gap-2">
+                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                    <span>Menuju Website Lain</span>
+                </button>
+            </div>
+        </div>
+        </div> <!-- End of #page-home -->
+
+        <!-- ========================================================================= -->
+        <!-- HALAMAN 2: GATEWAY KEAMANAN & SYARAT AKSES (#page-gateway) -->
+        <!-- ========================================================================= -->
+        <div id="page-gateway" class="page-view hidden space-y-10 py-4">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-code font-semibold">
+                    <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-purple-400"></i>
+                    <span>SECURITY GATEWAY VERIFICATION</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Syarat & Verifikasi Akses</h2>
+                <p class="text-sm text-gray-400">
+                    Selesaikan langkah singkat di bawah ini untuk mendukung kreator dan membuka akses HTTP GET script secara gratis, atau gunakan opsi pengalihan ke website lain.
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <!-- TAHAP 1: CHECKLIST MISI -->
+                <div id="gateway-step1" class="glass-card rounded-3xl border border-white/15 p-6 sm:p-8 space-y-6 shadow-2xl relative">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                                <i data-lucide="list-checks" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-base">Checklist Misi Pendukung</h3>
+                                <p class="text-xs text-gray-400 font-code">Wajib diselesaikan dengan jujur</p>
+                            </div>
+                        </div>
+                        <div class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-code text-cyan-400 font-bold" id="req-progress-text">
+                            0 / 3 Langkah Selesai
+                        </div>
+                    </div>
+
+                    <!-- Checklist Items -->
+                    <div class="space-y-3.5">
+                        <div class="glass p-4 rounded-2xl border border-white/10 flex items-center justify-between gap-3 transition-all" id="step-row-1">
+                            <div class="flex items-center gap-3">
+                                <div id="step-icon-1" class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-gray-400 font-bold text-xs font-code">1</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Follow Akun TikTok</h4>
+                                    <p class="text-xs text-gray-400">Follow akun resmi @PalRyzX</p>
+                                </div>
+                            </div>
+                            <button onclick="doRequirementStep(1)" id="btn-step-1" class="px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 hover-trigger">
+                                <span>Follow Sekarang</span>
+                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+
+                        <div class="glass p-4 rounded-2xl border border-white/10 flex items-center justify-between gap-3 transition-all" id="step-row-2">
+                            <div class="flex items-center gap-3">
+                                <div id="step-icon-2" class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-gray-400 font-bold text-xs font-code">2</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Like Video Terbaru</h4>
+                                    <p class="text-xs text-gray-400">Berikan like pada showcase script</p>
+                                </div>
+                            </div>
+                            <button onclick="doRequirementStep(2)" id="btn-step-2" class="px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 hover-trigger">
+                                <span>Like Video</span>
+                                <i data-lucide="heart" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+
+                        <div class="glass p-4 rounded-2xl border border-white/10 flex items-center justify-between gap-3 transition-all" id="step-row-3">
+                            <div class="flex items-center gap-3">
+                                <div id="step-icon-3" class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-gray-400 font-bold text-xs font-code">3</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Tinggalkan Komentar</h4>
+                                    <p class="text-xs text-gray-400">Ketik "PalRyzX Terbaik!" di komentar</p>
+                                </div>
+                            </div>
+                            <button onclick="doRequirementStep(3)" id="btn-step-3" class="px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 hover-trigger">
+                                <span>Komentar Sekarang</span>
+                                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Checkbox Konfirmasi -->
+                    <div class="pt-2">
+                        <label class="flex items-center gap-3 cursor-pointer select-none p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all">
+                            <input type="checkbox" id="req-checkbox" onchange="validateReqCheckbox()" class="w-5 h-5 rounded border-gray-600 text-cyan-500 focus:ring-cyan-400 bg-gray-800">
+                            <span class="text-xs sm:text-sm font-medium text-gray-200">
+                                Saya sudah menyelesaikan semua langkah di atas dengan jujur.
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-3 pt-2">
+                        <button onclick="proceedToVerification()" id="btn-lanjutkan" disabled class="w-full py-4 rounded-2xl bg-gray-700 text-gray-400 font-extrabold text-base transition-all duration-300 flex items-center justify-center gap-2 cursor-not-allowed">
+                            <span>Lanjutkan ke Proses Verifikasi</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+
+                        <button onclick="openExternalWebsite()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-600/30 to-pink-600/30 hover:from-purple-600/50 hover:to-pink-600/50 border border-purple-500/30 text-purple-200 font-bold text-sm transition-all flex items-center justify-center gap-2 hover-trigger shadow-lg shadow-purple-500/10">
+                            <i data-lucide="external-link" class="w-4 h-4 text-purple-400"></i>
+                            <span id="gateway-btn-redirect">Menuju Website Lain (Direct Access)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TAHAP 2: VERIFIKASI KEAMANAN (Hidden initially) -->
+                <div id="gateway-step2" class="glass-card rounded-3xl border border-white/15 p-8 text-center space-y-6 shadow-2xl relative hidden animate-fade-in">
+                    <div class="relative w-24 h-24 mx-auto flex items-center justify-center" id="verif-anim-box">
+                        <div class="absolute inset-0 rounded-full border-4 border-cyan-500/20 border-t-cyan-400 animate-spin"></div>
+                        <div class="absolute inset-2 rounded-full border-4 border-purple-500/20 border-b-purple-500 animate-spin" style="animation-direction: reverse; animation-duration: 1.5s;"></div>
+                        <i data-lucide="cpu" class="w-10 h-10 text-cyan-400 animate-pulse"></i>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h3 class="text-2xl font-black text-white" id="verif-title">Memverifikasi akses...</h3>
+                        <p class="text-xs font-code text-cyan-300 animate-pulse" id="verif-subtext">
+                            Connecting to PalRyzX Security Grid & validating token...
+                        </p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="w-full bg-gray-800 rounded-full h-3 overflow-hidden p-0.5 border border-white/10">
+                            <div id="verif-progress-bar" class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 h-full rounded-full w-0 transition-all duration-300 progress-striped"></div>
+                        </div>
+                        <div class="flex justify-between text-[11px] font-code text-gray-400">
+                            <span>Status: <strong id="verif-percent">0%</strong></span>
+                            <span id="verif-step-tag">Step 1 of 3</span>
+                        </div>
+                    </div>
+
+                    <!-- Confirmation Box -->
+                    <div id="verif-confirm-box" class="hidden space-y-4 pt-4 border-t border-white/10 animate-fade-in">
+                        <div class="p-3.5 rounded-xl bg-green-500/10 border border-green-500/30 text-green-300 text-xs flex items-center justify-center gap-2" id="verif-banner">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-400"></i>
+                            <span id="verif-banner-text" class="font-bold text-sm">Verifikasi Berhasil! Akses Script Diberikan.</span>
+                        </div>
+                        <p class="text-xs text-gray-300" id="verif-desc">
+                            Silakan pilih aksi di bawah ini untuk membuka kode script di Viewer atau langsung menuju ke website tujuan.
+                        </p>
+                        
+                        <div id="verif-buttons" class="space-y-3">
+                            <button id="btn-verif-get" onclick="executeGetScriptRequest()" class="w-full py-4 rounded-2xl btn-shimmer text-black font-extrabold text-sm shadow-xl shadow-cyan-500/30 hover:scale-105 transition-all flex items-center justify-center gap-2 ripple hover-trigger">
+                                <i data-lucide="download" class="w-5 h-5"></i>
+                                <span>Konfirmasi & Buka Script di Viewer</span>
+                            </button>
+                            
+                            <button id="btn-verif-redirect" onclick="openExternalWebsite()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-extrabold text-sm shadow-xl shadow-purple-500/30 hover:scale-105 transition-all flex items-center justify-center gap-2 ripple hover-trigger">
+                                <i data-lucide="external-link" class="w-5 h-5"></i>
+                                <span id="label-verif-redirect">Menuju Website Lain</span>
+                            </button>
+                        </div>
+
+                        <div id="verif-auto-timer" class="hidden p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-code animate-pulse">
+                            🚀 Mengalihkan ke website tujuan secara otomatis dalam <span id="verif-countdown-val" class="font-bold text-white text-sm">3</span> detik...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- HALAMAN 3: CODE VIEWER & SCRIPT TOOLS (#page-viewer) -->
+        <!-- ========================================================================= -->
+        <div id="page-viewer" class="page-view hidden space-y-6 py-4">
+            <div id="viewer-window" class="glass-card max-w-5xl w-full mx-auto rounded-3xl border border-white/20 overflow-hidden shadow-2xl flex flex-col min-h-[600px] transition-all duration-300">
+                <div class="bg-[#0b0d17] px-6 py-4 border-b border-white/10 flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center text-white shadow-md">
+                            <i data-lucide="code" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-black text-white text-base flex items-center gap-2">
+                                <span>PalRyzX Universal Script</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] bg-green-500/20 text-green-300 font-code">GET SUCCESS</span>
+                            </h3>
+                            <p class="text-xs font-code text-gray-400" id="viewer-url-tag">Endpoint: /api/v3/script</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button onclick="toggleFavoriteCurrentScript()" id="btn-fav-script" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-pink-400 transition-all flex items-center gap-1.5 text-xs font-code hover-trigger" title="Simpan ke Favorit">
+                            <i data-lucide="heart" id="icon-fav-heart" class="w-4 h-4"></i>
+                            <span class="hidden sm:inline">Favorite</span>
+                        </button>
+                        <button onclick="toggleFullscreenViewer()" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white transition-all hover-trigger" title="Fullscreen Toggle">
+                            <i data-lucide="maximize-2" id="icon-fullscreen" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="showPage('home')" class="px-3 py-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-300 transition-all text-xs font-code flex items-center gap-1" title="Kembali ke Beranda">
+                            <i data-lucide="x" class="w-4 h-4"></i>
+                            <span>Close</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-[#0e111f] px-6 py-3 border-b border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-code">
+                    <div class="flex items-center gap-4 text-gray-400">
+                        <span class="flex items-center gap-1"><i data-lucide="file-code" class="w-3.5 h-3.5 text-cyan-400"></i> Lua Script</span>
+                        <span class="flex items-center gap-1"><i data-lucide="database" class="w-3.5 h-3.5 text-purple-400"></i> <span id="script-size">0 KB</span></span>
+                        <span class="hidden md:flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-400"></i> Fetched in <span id="fetch-time">0ms</span></span>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button onclick="selectAllCode()" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white transition-all flex items-center gap-1.5 hover-trigger">
+                            <i data-lucide="check-square" class="w-3.5 h-3.5"></i>
+                            <span>Select All</span>
+                        </button>
+                        <button onclick="downloadScriptTxt()" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white transition-all flex items-center gap-1.5 hover-trigger">
+                            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                            <span>Download TXT</span>
+                        </button>
+                        <button onclick="shareScript()" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white transition-all flex items-center gap-1.5 hover-trigger">
+                            <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                            <span>Share</span>
+                        </button>
+                        <button onclick="copyScriptToClipboard()" class="px-5 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold transition-all shadow-md shadow-cyan-500/20 flex items-center gap-1.5 ripple hover-trigger">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>Copy Script</span>
+                        </button>
+                        <button onclick="openExternalWebsite()" class="px-3 py-1.5 rounded-lg bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/30 text-purple-300 font-bold transition-all flex items-center gap-1.5 hover-trigger" title="Menuju Website Lain / Direct Access">
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                            <span id="viewer-btn-redirect">Menuju Website Lain</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex-grow overflow-auto p-4 md:p-6 bg-[#070912] relative min-h-[400px]">
+                    <div id="viewer-empty-state" class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 space-y-4 bg-[#070912]">
+                        <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mx-auto">
+                            <i data-lucide="terminal" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-1">Belum Ada Script Dimuat</h4>
+                            <p class="text-xs text-gray-400 max-w-sm mx-auto">Silakan lakukan verifikasi singkat melalui Gateway Keamanan untuk memuat script resmi dari server.</p>
+                        </div>
+                        <div class="flex justify-center">
+                            <button onclick="showPage('gateway')" class="px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 transition-all">
+                                🛡️ Mulai Verifikasi & Buka Script
+                            </button>
+                        </div>
+                    </div>
+                    <pre class="line-numbers hidden" id="viewer-pre-box"><code id="code-content-box" class="language-lua">-- Loading PalRyzX Engine...</code></pre>
+                </div>
+
+                <div class="bg-[#0b0d17] px-6 py-3 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 font-code">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i>
+                        <span>Paste this script into your Roblox Executor and press Execute.</span>
+                    </div>
+                    <span class="text-green-400 font-bold">100% Undetected & Safe</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- HALAMAN 4: RIWAYAT & FAVORIT (#page-history) -->
+        <!-- ========================================================================= -->
+        <div id="page-history" class="page-view hidden space-y-8 py-4">
+            <div class="glass-card max-w-3xl w-full mx-auto rounded-3xl border border-white/20 p-6 md:p-8 space-y-6 shadow-2xl relative">
+                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                            <i data-lucide="bookmark" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Riwayat & Script Favorit</h3>
+                            <p class="text-xs text-gray-400 font-code">Disimpan aman di LocalStorage peramban Anda</p>
+                        </div>
+                    </div>
+                    <button onclick="showPage('home')" class="text-gray-400 hover:text-white p-2 rounded-xl bg-white/5">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <div class="flex border-b border-white/10 font-code text-xs">
+                    <button onclick="switchHistoryTab('fav')" id="tab-btn-fav" class="px-6 py-3 font-bold text-cyan-400 border-b-2 border-cyan-400 transition-all flex items-center gap-2">
+                        <span>⭐ Favorit Saya</span> (<span id="fav-count-num">0</span>)
+                    </button>
+                    <button onclick="switchHistoryTab('hist')" id="tab-btn-hist" class="px-6 py-3 font-bold text-gray-400 border-b-2 border-transparent hover:text-white transition-all flex items-center gap-2">
+                        <span>🕒 Riwayat Akses</span> (<span id="hist-count-num">0</span>)
+                    </button>
+                </div>
+
+                <div class="min-h-[300px] max-h-[500px] overflow-y-auto space-y-3 pr-1 font-code text-xs" id="history-content-list">
+                    <!-- Dynamically filled by JS -->
+                </div>
+
+                <div class="pt-4 border-t border-white/10 flex justify-between items-center text-xs text-gray-400">
+                    <button onclick="clearHistoryData()" class="text-red-400 hover:text-red-300 flex items-center gap-1.5 font-code px-3 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 transition-all">
+                        <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        <span>Bersihkan Data Lokal</span>
+                    </button>
+                    <span>PalRyzX Local DB v3.8</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- HALAMAN 5: FAQ & DEVELOPER INFO (#page-faq) -->
+        <!-- ========================================================================= -->
+        <div id="page-faq" class="page-view hidden space-y-16 py-4">
+        <!-- FAQ SECTION WITH SEARCH -->
+        <section id="faq" class="space-y-8 pt-10">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-xs font-code uppercase tracking-widest text-cyan-400 font-semibold">Need Help?</span>
+                <h2 class="text-3xl font-extrabold text-white">Frequently Asked Questions</h2>
+                <p class="text-sm text-gray-400">
+                    Find quick answers to common questions regarding script execution, safety, and requirements.
+                </p>
+                <!-- FAQ Search Box -->
+                <div class="relative max-w-md mx-auto pt-2">
+                    <i data-lucide="search" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" id="faq-search" placeholder="Cari pertanyaan (contoh: banned, delta, key)..." oninput="filterFAQ()" class="w-full bg-white/5 border border-white/10 rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-all font-code">
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4" id="faq-list">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                    <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 text-left flex items-center justify-between font-bold text-white hover:text-cyan-400 transition-colors">
+                        <span>Apakah PalRyzX Script Hub aman dan anti-ban?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-3">
+                        Ya, script kami menggunakan teknik pengamanan memori mutakhir dan bypass internal untuk menghindari deteksi sistem anticheat modern. Namun, selalu sarankan gunakan akun cadangan (alt account) terlebih dahulu untuk menguji fungsi pada executor Anda.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                    <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 text-left flex items-center justify-between font-bold text-white hover:text-cyan-400 transition-colors">
+                        <span>Mengapa saya harus follow dan like di TikTok terlebih dahulu?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-3">
+                        Script ini disediakan 100% GRATIS tanpa sistem Key Linkvertise yang menyebalkan! Sebagai gantinya, kami hanya meminta dukungan gratis Anda berupa Follow, Like, dan Komentar di TikTok kreator agar kami bersemangat terus memperbarui script setiap minggu.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                    <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 text-left flex items-center justify-between font-bold text-white hover:text-cyan-400 transition-colors">
+                        <span>Bagaimana cara menjalankan script ini di Delta atau Codex?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-3">
+                        1. Buka aplikasi Roblox yang sudah terpasang executor (Delta, Codex, Fluxus, dll).<br>
+                        2. Masuk ke permainan yang didukung (misalnya Blox Fruits).<br>
+                        3. Buka ikon executor Anda, lalu tempel (Paste) kode script yang Anda salin dari PalRyzX Hub.<br>
+                        4. Klik tombol "Execute" dan tunggu beberapa detik hingga menu GUI muncul.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                    <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 text-left flex items-center justify-between font-bold text-white hover:text-cyan-400 transition-colors">
+                        <span>Bagaimana jika terjadi error "HTTP GET Failed" saat execute?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-3">
+                        Pastikan koneksi internet Anda stabil dan executor yang Anda gunakan mengizinkan fungsi <code class="text-cyan-300">game:HttpGet</code>. Jika Anda menggunakan VPN, coba matikan sementara karena beberapa firewall memblokir request ke server script.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT DEVELOPER & CONTACT CARD -->
+        <section id="about" class="pt-10 pb-6">
+            <div class="glass-card rounded-3xl p-8 md:p-10 border border-white/15 relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-10 -top-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="md:col-span-8 space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-code">
+                            <i data-lucide="user" class="w-3.5 h-3.5"></i>
+                            <span>ABOUT THE DEVELOPER</span>
+                        </div>
+                        <h2 class="text-3xl font-extrabold text-white">Meet PalRyzX</h2>
+                        <p class="text-gray-300 leading-relaxed text-sm">
+                            Passionate Roblox Lua developer and security engineer with over 4 years of experience crafting high-performance user interfaces and exploit automation frameworks. Committed to delivering bug-free, premium tools without abusive ad-links.
+                        </p>
+                        <div class="flex flex-wrap gap-3 pt-2">
+                            <a href="#" id="dev-tiktok-link" target="_blank" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-xs flex items-center gap-2 transition-all hover-trigger">
+                                <i data-lucide="video" class="w-4 h-4 text-pink-400"></i>
+                                <span>TikTok Official</span>
+                            </a>
+                            <a href="https://discord.gg" target="_blank" class="px-4 py-2 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 border border-indigo-500/30 text-indigo-300 font-medium text-xs flex items-center gap-2 transition-all hover-trigger">
+                                <i data-lucide="message-square" class="w-4 h-4 text-indigo-400"></i>
+                                <span>Join Discord Server</span>
+                            </a>
+                            <a href="https://t.me" target="_blank" class="px-4 py-2 rounded-xl bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/30 text-blue-300 font-medium text-xs flex items-center gap-2 transition-all hover-trigger">
+                                <i data-lucide="send" class="w-4 h-4 text-blue-400"></i>
+                                <span>Telegram Group</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4 flex justify-center">
+                        <div class="w-44 h-44 rounded-3xl bg-gradient-to-tr from-cyan-500 via-purple-600 to-pink-500 p-1 shadow-2xl shadow-purple-500/30 rotate-3 hover:rotate-0 transition-transform duration-300">
+                            <div class="w-full h-full bg-[#0a0c16] rounded-[22px] flex flex-col items-center justify-center p-4 text-center">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center text-white text-2xl font-black mb-3 shadow-lg">
+                                    PZ
+                                </div>
+                                <span class="font-bold text-white text-base">PalRyzX</span>
+                                <span class="text-[11px] text-cyan-400 font-code">Lead Lua Architect</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div> <!-- End of #page-faq -->
+
+    </main>
+
+    <!-- FOOTER MODERN -->
+    <footer class="glass border-t border-white/10 py-8 mt-12 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-code">
+            <div class="flex items-center gap-2">
+                <span>© 2026 <strong>PalRyzX Script Hub</strong>. All rights reserved.</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                    <span>Single-File Architecture</span>
+                </span>
+                <button onclick="scrollToTop()" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white transition-all flex items-center gap-1 hover-trigger">
+                    <span>Top</span>
+                    <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- MODAL 4: ERROR CARD MODERN (IF GET FAILS) -->
+    <!-- ========================================================================= -->
+    <div id="modal-error" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div class="glass-card max-w-md w-full rounded-3xl border border-red-500/30 p-8 text-center space-y-6 shadow-2xl relative">
+            <div class="w-16 h-16 rounded-2xl bg-red-500/10 border border-red-500/30 mx-auto flex items-center justify-center text-red-400 shadow-xl shadow-red-500/20">
+                <i data-lucide="alert-triangle" class="w-8 h-8 animate-bounce"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-2xl font-black text-white">HTTP GET Request Gagal!</h3>
+                <p class="text-xs text-gray-300 leading-relaxed" id="error-message">
+                    Gagal mengambil payload script dari server endpoint. Mungkin server sedang sibuk atau diblokir oleh firewall jaringan Anda.
+                </p>
+            </div>
+            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-left font-code text-[11px] text-gray-400 overflow-x-auto">
+                <div>Endpoint: <span class="text-red-400" id="error-endpoint-url">/api/script</span></div>
+                <div>Status: <span class="text-amber-400" id="error-status-code">ERR_CONNECTION_REFUSED</span></div>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="closeModal('modal-error')" class="flex-1 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs transition-all hover-trigger">
+                    Tutup
+                </button>
+                <button onclick="retryGetScript()" class="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-400 hover:to-pink-500 text-white font-bold text-xs shadow-lg shadow-red-500/25 transition-all flex items-center justify-center gap-2 ripple hover-trigger">
+                    <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+                    <span>Coba Lagi (Retry)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <!-- ========================================================================= -->
+    <script>
+        /*************************************************************************
+         * 1. VARIABEL KONFIGURASI UTAMA (EASY TO CONFIG BY OWNER)
+         * Semua link TikTok (profil & video) serta endpoint HTTP GET diletakkan 
+         * di sini agar mudah diubah tanpa merubah logika aplikasi.
+         *************************************************************************/
+        const CONFIG = {
+            appName: "PalRyzX Script Hub",
+            version: "v3.8.5 Pro",
+            tiktok: {
+                // Link profil TikTok pemilik situs
+                profileUrl: "https://www.tiktok.com/@palryzx",
+                // Link video terbaru yang harus dilike & dikomentari
+                videoUrl: "https://www.tiktok.com/@palryzx"
+            },
+            api: {
+                // Endpoint HTTP GET utama di server pemilik situs
+                // Contoh: "https://domain-anda.com/api/v1/script" atau "/api/script"
+                scriptEndpoint: "https://pastebin.com/raw/LREU9AkW",
+                // Fallback script asli jika endpoint eksternal gagal dijangkau (CORS/offline)
+                fallbackScript: `loadstring(game:HttpGet("https://pastebin.com/raw/LREU9AkW"))()`
+            },
+            stats: {
+                initialDownloads: 14892,
+                initialCopies: 32410
+            },
+            redirect: {
+                // Aktifkan fitur pengalihan/menuju website lain (misal: Linkvertise, Work.ink, Pastebin, atau Discord)
+                enabled: true,
+                // URL website tujuan Anda
+                url: "https://discord.gg", 
+                // Nama/teks pada tombol yang menuju website lain
+                buttonLabel: "🚀 Menuju Website Lain (Direct Access)",
+                // Mode pengalihan setelah verifikasi selesai:
+                // "viewer_and_redirect" = Tampilkan tombol untuk membuka Code Viewer DAN tombol menuju website lain
+                // "auto_redirect" = Otomatis mengalihkan ke website lain setelah verifikasi selesai (dengan hitung mundur)
+                // "redirect_only" = HANYA tampilkan tombol untuk menuju website lain (tanpa tombol HTTP GET)
+                mode: "viewer_and_redirect", // Pilihan: "viewer_and_redirect", "auto_redirect", "redirect_only"
+                autoRedirectDelay: 3 // waktu tunda dalam detik jika memilih "auto_redirect"
+            }
+        };
+
+        /*************************************************************************
+         * 2. APPLICATION STATE & STORAGE MANAGER
+         *************************************************************************/
+        const AppState = {
+            checklist: {
+                step1: false,
+                step2: false,
+                step3: false,
+                checkbox: false
+            },
+            currentScriptText: "",
+            isFavorite: false,
+            activeTab: "fav"
+        };
+
+        // Initialize Lucide Icons on DOM Load
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initStartupLoader();
+            initParticleCanvas();
+            initCustomCursor();
+            loadStatsFromStorage();
+            initDeveloperLinks();
+            initRedirectConfig();
+            showPage('home');
+        });
+
+        /*************************************************************************
+         * 2.5. SPA PAGE ROUTER & VIEW SWITCHING SYSTEM
+         *************************************************************************/
+        function showPage(pageId) {
+            // Sembunyikan semua halaman
+            const pages = ['home', 'gateway', 'viewer', 'history', 'faq'];
+            pages.forEach(p => {
+                const el = document.getElementById(`page-${p}`);
+                const navBtn = document.getElementById(`nav-${p}`);
+                const mobBtn = document.getElementById(`mob-${p}`);
+                if (el) {
+                    el.classList.add('hidden');
+                    el.classList.remove('page-enter');
+                }
+                if (navBtn) navBtn.classList.remove('nav-active', 'text-cyan-400');
+                if (mobBtn) mobBtn.classList.remove('text-cyan-400', 'font-bold');
+            });
+
+            // Tampilkan halaman tujuan
+            const targetPage = document.getElementById(`page-${pageId}`);
+            const targetNav = document.getElementById(`nav-${pageId}`);
+            const targetMob = document.getElementById(`mob-${pageId}`);
+
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                // Trigger reflow & animation
+                void targetPage.offsetWidth;
+                targetPage.classList.add('page-enter');
+            }
+            if (targetNav) targetNav.classList.add('nav-active', 'text-cyan-400');
+            if (targetMob) targetMob.classList.add('text-cyan-400', 'font-bold');
+
+            // Khusus halaman history, muat data tab aktif
+            if (pageId === 'history') {
+                switchHistoryTab(AppState.activeTab || 'fav');
+            }
+
+            // Scroll ke atas
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            lucide.createIcons();
+        }
+
+        // Link Tiktok Developer di Footer/About & Tombol Eksternal
+        function initDeveloperLinks() {
+            const devLink = document.getElementById('dev-tiktok-link');
+            if (devLink) devLink.href = CONFIG.tiktok.profileUrl;
+        }
+
+        function initRedirectConfig() {
+            if (CONFIG.redirect && CONFIG.redirect.enabled) {
+                const lbl = CONFIG.redirect.buttonLabel || "Menuju Website Lain";
+                const elHero = document.getElementById('hero-btn-redirect');
+                const elVerif = document.getElementById('label-verif-redirect');
+                const elViewer = document.getElementById('viewer-btn-redirect');
+                if (elHero) elHero.textContent = lbl;
+                if (elVerif) elVerif.textContent = lbl;
+                if (elViewer) elViewer.textContent = lbl;
+            }
+        }
+
+        function openExternalWebsite() {
+            if (!CONFIG.redirect || !CONFIG.redirect.url) {
+                showToast("URL website tujuan belum dikonfigurasi di CONFIG.redirect.url", "error");
+                return;
+            }
+            showToast("Mengalihkan ke website tujuan...", "info");
+            setTimeout(() => {
+                window.open(CONFIG.redirect.url, '_blank');
+            }, 400);
+        }
+
+        /*************************************************************************
+         * 3. STARTUP BOOT LOADER & ANIMATION
+         *************************************************************************/
+        function initStartupLoader() {
+            const bar = document.getElementById('boot-progress-bar');
+            const status = document.getElementById('boot-status-text');
+            const loader = document.getElementById('startup-loader');
+            
+            let progress = 0;
+            const steps = [
+                { p: 25, text: "Connecting to PalRyzX Secure Cloud..." },
+                { p: 55, text: "Loading Executor Compatibility Modules..." },
+                { p: 85, text: "Decrypting UI & Particle Shaders..." },
+                { p: 100, text: "System Online — Welcome!" }
+            ];
+
+            let stepIdx = 0;
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 15) + 10;
+                if (progress > 100) progress = 100;
+                
+                bar.style.width = `${progress}%`;
+                
+                if (stepIdx < steps.length && progress >= steps[stepIdx].p) {
+                    status.textContent = steps[stepIdx].text;
+                    stepIdx++;
+                }
+
+                if (progress === 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loader.style.opacity = '0';
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                            showToast("Selamat datang di PalRyzX Script Hub!", "info");
+                        }, 700);
+                    }, 500);
+                }
+            }, 180);
+        }
+
+        /*************************************************************************
+         * 4. STATS & HIT COUNTERS (PERSISTENT VIA LOCALSTORAGE)
+         *************************************************************************/
+        function loadStatsFromStorage() {
+            let dl = localStorage.getItem('palryzx_downloads');
+            let cp = localStorage.getItem('palryzx_copies');
+
+            if (!dl) {
+                dl = CONFIG.stats.initialDownloads;
+                localStorage.setItem('palryzx_downloads', dl);
+            }
+            if (!cp) {
+                cp = CONFIG.stats.initialCopies;
+                localStorage.setItem('palryzx_copies', cp);
+            }
+
+            document.getElementById('stat-downloads').textContent = Number(dl).toLocaleString('id-ID');
+            document.getElementById('stat-copies').textContent = Number(cp).toLocaleString('id-ID');
+            document.getElementById('stat-version').innerHTML = `<i data-lucide="git-branch" class="w-3.5 h-3.5 inline"></i> ${CONFIG.version}`;
+            
+            updateFavoriteBadge();
+            lucide.createIcons();
+        }
+
+        function incrementStat(type) {
+            let key = type === 'download' ? 'palryzx_downloads' : 'palryzx_copies';
+            let elId = type === 'download' ? 'stat-downloads' : 'stat-copies';
+            let current = Number(localStorage.getItem(key)) || CONFIG.stats.initialDownloads;
+            current++;
+            localStorage.setItem(key, current);
+            document.getElementById(elId).textContent = current.toLocaleString('id-ID');
+        }
+
+        /*************************************************************************
+         * 5. MODAL SYARAT AKSES & CHECKLIST FLOW
+         *************************************************************************/
+        function initiateScriptAccess() {
+            // Reset checklist UI or load previous state
+            updateChecklistUI();
+            const step1Box = document.getElementById('gateway-step1');
+            const step2Box = document.getElementById('gateway-step2');
+            if (step1Box) step1Box.classList.remove('hidden');
+            if (step2Box) step2Box.classList.add('hidden');
+            showPage('gateway');
+        }
+
+        function doRequirementStep(stepNum) {
+            if (stepNum === 1) {
+                // Open TikTok Profile
+                window.open(CONFIG.tiktok.profileUrl, '_blank');
+                AppState.checklist.step1 = true;
+                markStepSuccess(1);
+            } else if (stepNum === 2) {
+                // Open TikTok Video for Like
+                window.open(CONFIG.tiktok.videoUrl, '_blank');
+                AppState.checklist.step2 = true;
+                markStepSuccess(2);
+            } else if (stepNum === 3) {
+                // Open TikTok Video for Comment
+                window.open(CONFIG.tiktok.videoUrl, '_blank');
+                AppState.checklist.step3 = true;
+                markStepSuccess(3);
+            }
+
+            updateChecklistUI();
+            showToast(`Langkah ${stepNum} sedang diverifikasi...`, "success");
+        }
+
+        function markStepSuccess(stepNum) {
+            const icon = document.getElementById(`step-icon-${stepNum}`);
+            const btn = document.getElementById(`btn-step-${stepNum}`);
+            const row = document.getElementById(`step-row-${stepNum}`);
+            
+            icon.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-green-400"></i>`;
+            icon.className = "w-7 h-7 rounded-lg bg-green-500/20 border border-green-500/40 flex items-center justify-center";
+            
+            btn.innerHTML = `<span>Selesai</span> <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>`;
+            btn.className = "px-4 py-2 rounded-xl bg-green-500/20 border border-green-500/30 text-green-300 font-bold text-xs pointer-events-none";
+            
+            row.className = "glass p-4 rounded-2xl border border-green-500/30 flex items-center justify-between gap-3 bg-green-500/5";
+            lucide.createIcons();
+        }
+
+        function updateChecklistUI() {
+            let completed = 0;
+            if (AppState.checklist.step1) completed++;
+            if (AppState.checklist.step2) completed++;
+            if (AppState.checklist.step3) completed++;
+
+            document.getElementById('req-progress-text').textContent = `${completed} / 3 Langkah Selesai`;
+
+            validateReqCheckbox();
+        }
+
+        function validateReqCheckbox() {
+            const cb = document.getElementById('req-checkbox');
+            const btn = document.getElementById('btn-lanjutkan');
+            AppState.checklist.checkbox = cb.checked;
+
+            if (AppState.checklist.step1 && AppState.checklist.step2 && AppState.checklist.step3 && cb.checked) {
+                btn.disabled = false;
+                btn.className = "w-full py-4 rounded-2xl btn-shimmer text-black font-extrabold text-base shadow-xl shadow-cyan-500/30 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer ripple hover-trigger";
+            } else {
+                btn.disabled = true;
+                btn.className = "w-full py-4 rounded-2xl bg-gray-700 text-gray-400 font-extrabold text-base transition-all duration-300 flex items-center justify-center gap-2 cursor-not-allowed";
+            }
+            lucide.createIcons();
+        }
+
+        /*************************************************************************
+         * 6. HALAMAN VERIFIKASI PROGRESS ENGINE
+         *************************************************************************/
+        function proceedToVerification() {
+            const step1Box = document.getElementById('gateway-step1');
+            const step2Box = document.getElementById('gateway-step2');
+            if (step1Box) step1Box.classList.add('hidden');
+            if (step2Box) step2Box.classList.remove('hidden');
+            showPage('gateway');
+
+            const bar = document.getElementById('verif-progress-bar');
+            const percent = document.getElementById('verif-percent');
+            const subtext = document.getElementById('verif-subtext');
+            const tag = document.getElementById('verif-step-tag');
+            const confirmBox = document.getElementById('verif-confirm-box');
+
+            bar.style.width = "0%";
+            percent.textContent = "0%";
+            confirmBox.classList.add('hidden');
+            
+            let p = 0;
+            const logSteps = [
+                { p: 30, tag: "Step 1 of 3", text: "Validating TikTok Follow & Like signatures..." },
+                { p: 65, tag: "Step 2 of 3", text: "Generating temporary hardware HWID token..." },
+                { p: 90, tag: "Step 3 of 3", text: "Decrypting cloud HTTP GET endpoint payload..." },
+                { p: 100, tag: "Completed!", text: "Security clearance granted. Ready to fetch." }
+            ];
+
+            let logIdx = 0;
+            const timer = setInterval(() => {
+                p += Math.floor(Math.random() * 12) + 8;
+                if (p > 100) p = 100;
+                
+                bar.style.width = `${p}%`;
+                percent.textContent = `${p}%`;
+
+                if (logIdx < logSteps.length && p >= logSteps[logIdx].p) {
+                    subtext.textContent = logSteps[logIdx].text;
+                    tag.textContent = logSteps[logIdx].tag;
+                    logIdx++;
+                }
+
+                if (p === 100) {
+                    clearInterval(timer);
+                    setTimeout(() => {
+                        confirmBox.classList.remove('hidden');
+                        showToast("✅ Verifikasi Berhasil! Langsung memuat Script...", "success");
+                        
+                        // Langsung buka script tanpa harus menunggu tombol konfirmasi
+                        setTimeout(() => {
+                            executeGetScriptRequest();
+                        }, 600);
+
+                        lucide.createIcons();
+                    }, 300);
+                }
+            }, 150);
+        }
+
+        /*************************************************************************
+         * 7. HTTP GET REQUEST ENGINE & CODE VIEWER
+         *************************************************************************/
+        async function executeGetScriptRequest() {
+            showToast("Mengambil script via HTTP GET...", "info");
+
+            const startTime = performance.now();
+            
+            try {
+                // Melakukan HTTP GET ke endpoint yang dikonfigurasi di CONFIG.api.scriptEndpoint
+                const response = await fetch(CONFIG.api.scriptEndpoint, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'text/plain, */*'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP Error Status: ${response.status} (${response.statusText})`);
+                }
+
+                const scriptContent = await response.text();
+                const endTime = performance.now();
+                const fetchDuration = Math.round(endTime - startTime);
+
+                displayScriptInViewer(scriptContent, fetchDuration, CONFIG.api.scriptEndpoint);
+                
+            } catch (error) {
+                console.warn("[PalRyzX Fetch Warning]: Gagal dari HTTP GET eksternal:", error.message);
+                // Langsung tampilkan script asli dari internal fallback buffer agar 100% langsung ke script tanpa ada error atau script demo
+                displayScriptInViewer(CONFIG.api.fallbackScript, 45, CONFIG.api.scriptEndpoint);
+            }
+        }
+
+        function useFallbackDemoScript() {
+            closeModal('modal-error');
+            displayScriptInViewer(CONFIG.api.fallbackScript, 45, CONFIG.api.scriptEndpoint);
+        }
+
+        function retryGetScript() {
+            closeModal('modal-error');
+            executeGetScriptRequest();
+        }
+
+        function displayScriptInViewer(scriptText, durationMs, endpointLabel) {
+            AppState.currentScriptText = scriptText;
+            
+            // Catat ke riwayat
+            logAccessHistory(endpointLabel);
+
+            // Perbarui UI Viewer
+            document.getElementById('viewer-url-tag').textContent = `Endpoint: ${endpointLabel}`;
+            document.getElementById('fetch-time').textContent = `${durationMs}ms`;
+            
+            // Hitung estimasi ukuran file
+            const sizeKb = (new Blob([scriptText]).size / 1024).toFixed(1);
+            document.getElementById('script-size').textContent = `${sizeKb} KB`;
+
+            // Masukkan ke box kode & jalankan Prism syntax highlighter
+            const codeBox = document.getElementById('code-content-box');
+            codeBox.textContent = scriptText;
+            
+            const emptyState = document.getElementById('viewer-empty-state');
+            const preBox = document.getElementById('viewer-pre-box');
+            if (emptyState) emptyState.classList.add('hidden');
+            if (preBox) preBox.classList.remove('hidden');
+            
+            showPage('viewer');
+
+            // Cek apakah script ini sudah ada di favorit
+            checkIfCurrentFavorite();
+
+            // Re-highlight sintaks
+            setTimeout(() => {
+                if (window.Prism) {
+                    Prism.highlightAllUnder(document.getElementById('page-viewer'));
+                }
+            }, 100);
+
+            // Trigger confetti
+            triggerConfetti();
+        }
+
+        /*************************************************************************
+         * 8. CODE VIEWER TOOLS (COPY, SELECT ALL, DOWNLOAD, SHARE, FULLSCREEN)
+         *************************************************************************/
+        function copyScriptToClipboard() {
+            if (!AppState.currentScriptText) return;
+
+            navigator.clipboard.writeText(AppState.currentScriptText).then(() => {
+                incrementStat('copy');
+                showToast("⚡ Script berhasil disalin ke clipboard!", "success");
+            }).catch(err => {
+                // Fallback lama
+                const ta = document.createElement("textarea");
+                ta.value = AppState.currentScriptText;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand("copy");
+                document.body.removeChild(ta);
+                incrementStat('copy');
+                showToast("⚡ Script berhasil disalin ke clipboard!", "success");
+            });
+        }
+
+        function selectAllCode() {
+            const codeEl = document.getElementById('code-content-box');
+            const range = document.createRange();
+            range.selectNodeContents(codeEl);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+            showToast("Semua teks script dipilih.", "info");
+        }
+
+        function downloadScriptTxt() {
+            if (!AppState.currentScriptText) return;
+            
+            const blob = new Blob([AppState.currentScriptText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `PalRyzX_Script_${Date.now()}.lua`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            incrementStat('download');
+            showToast("📥 File script .lua berhasil diunduh!", "success");
+        }
+
+        function shareScript() {
+            if (navigator.share) {
+                navigator.share({
+                    title: CONFIG.appName,
+                    text: `Dapatkan Script Roblox premium gratis 100% undetected di ${CONFIG.appName}!`,
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                showToast("Link situs berhasil disalin untuk dibagikan!", "info");
+            }
+        }
+
+        function toggleFullscreenViewer() {
+            const win = document.getElementById('viewer-window');
+            const icon = document.getElementById('icon-fullscreen');
+
+            if (!win.classList.contains('max-w-full')) {
+                win.classList.remove('max-w-5xl', 'max-h-[92vh]', 'rounded-3xl');
+                win.classList.add('max-w-full', 'h-screen', 'max-h-screen', 'rounded-none');
+                icon.setAttribute('data-lucide', 'minimize-2');
+                showToast("Mode Fullscreen Diaktifkan", "info");
+            } else {
+                win.classList.add('max-w-5xl', 'max-h-[92vh]', 'rounded-3xl');
+                win.classList.remove('max-w-full', 'h-screen', 'max-h-screen', 'rounded-none');
+                icon.setAttribute('data-lucide', 'maximize-2');
+                showToast("Mode Fullscreen Dinonaktifkan", "info");
+            }
+            lucide.createIcons();
+        }
+
+        /*************************************************************************
+         * 9. FAVORITES & ACCESS HISTORY SYSTEM (LOCALSTORAGE)
+         *************************************************************************/
+        function logAccessHistory(endpointLabel) {
+            let hist = JSON.parse(localStorage.getItem('palryzx_history') || "[]");
+            const entry = {
+                id: Date.now(),
+                title: `${CONFIG.appName} ${CONFIG.version}`,
+                endpoint: endpointLabel,
+                timestamp: new Date().toLocaleString('id-ID'),
+                code: AppState.currentScriptText
+            };
+            hist.unshift(entry);
+            if (hist.length > 20) hist = hist.slice(0, 20); // Simpan max 20 riwayat
+            localStorage.setItem('palryzx_history', JSON.stringify(hist));
+        }
+
+        function toggleFavoriteCurrentScript() {
+            if (!AppState.currentScriptText) return;
+            
+            let favs = JSON.parse(localStorage.getItem('palryzx_favorites') || "[]");
+            const btn = document.getElementById('btn-fav-script');
+            const icon = document.getElementById('icon-fav-heart');
+
+            // Cari apakah sudah ada
+            const idx = favs.findIndex(f => f.code === AppState.currentScriptText);
+
+            if (idx > -1) {
+                // Hapus dari favorit
+                favs.splice(idx, 1);
+                btn.classList.remove('text-pink-400', 'border-pink-500/50', 'bg-pink-500/10');
+                icon.setAttribute('fill', 'none');
+                showToast("Dihapus dari daftar Favorit.", "info");
+            } else {
+                // Tambahkan ke favorit
+                favs.unshift({
+                    id: Date.now(),
+                    title: `PalRyzX Saved Script #${favs.length + 1}`,
+                    timestamp: new Date().toLocaleString('id-ID'),
+                    code: AppState.currentScriptText
+                });
+                btn.classList.add('text-pink-400', 'border-pink-500/50', 'bg-pink-500/10');
+                icon.setAttribute('fill', '#ec4899');
+                showToast("⭐ Script berhasil disimpan ke Favorit!", "success");
+            }
+
+            localStorage.setItem('palryzx_favorites', JSON.stringify(favs));
+            updateFavoriteBadge();
+        }
+
+        function checkIfCurrentFavorite() {
+            let favs = JSON.parse(localStorage.getItem('palryzx_favorites') || "[]");
+            const btn = document.getElementById('btn-fav-script');
+            const icon = document.getElementById('icon-fav-heart');
+            const exists = favs.some(f => f.code === AppState.currentScriptText);
+
+            if (exists) {
+                btn.classList.add('text-pink-400', 'border-pink-500/50', 'bg-pink-500/10');
+                if (icon) icon.setAttribute('fill', '#ec4899');
+            } else {
+                btn.classList.remove('text-pink-400', 'border-pink-500/50', 'bg-pink-500/10');
+                if (icon) icon.setAttribute('fill', 'none');
+            }
+        }
+
+        function updateFavoriteBadge() {
+            let favs = JSON.parse(localStorage.getItem('palryzx_favorites') || "[]");
+            const badge = document.getElementById('fav-badge');
+            if (favs.length > 0) {
+                badge.textContent = favs.length;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function openHistoryDrawer() {
+            switchHistoryTab('fav');
+            showPage('history');
+        }
+
+        function switchHistoryTab(tab) {
+            AppState.activeTab = tab;
+            const btnFav = document.getElementById('tab-btn-fav');
+            const btnHist = document.getElementById('tab-btn-hist');
+            
+            let favs = JSON.parse(localStorage.getItem('palryzx_favorites') || "[]");
+            let hist = JSON.parse(localStorage.getItem('palryzx_history') || "[]");
+
+            document.getElementById('fav-count-num').textContent = favs.length;
+            document.getElementById('hist-count-num').textContent = hist.length;
+
+            if (tab === 'fav') {
+                btnFav.className = "px-6 py-2.5 font-bold text-cyan-400 border-b-2 border-cyan-400 transition-all";
+                btnHist.className = "px-6 py-2.5 font-bold text-gray-400 border-b-2 border-transparent hover:text-white transition-all";
+                renderHistoryList(favs, 'fav');
+            } else {
+                btnHist.className = "px-6 py-2.5 font-bold text-cyan-400 border-b-2 border-cyan-400 transition-all";
+                btnFav.className = "px-6 py-2.5 font-bold text-gray-400 border-b-2 border-transparent hover:text-white transition-all";
+                renderHistoryList(hist, 'hist');
+            }
+        }
+
+        function renderHistoryList(items, type) {
+            const container = document.getElementById('history-content-list');
+            container.innerHTML = "";
+
+            if (items.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-500 space-y-2">
+                        <i data-lucide="inbox" class="w-10 h-10 mx-auto opacity-40"></i>
+                        <p>Belum ada data ${type === 'fav' ? 'favorit' : 'riwayat'} yang tersimpan.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            items.forEach((item, idx) => {
+                const el = document.createElement('div');
+                el.className = "glass p-4 rounded-2xl border border-white/10 flex items-center justify-between gap-3 hover:border-cyan-500/40 transition-all";
+                el.innerHTML = `
+                    <div class="space-y-1 max-w-[70%]">
+                        <div class="font-bold text-white text-sm flex items-center gap-2">
+                            <span>${item.title || 'PalRyzX Script'}</span>
+                            ${type === 'fav' ? '<span class="text-[10px] px-1.5 py-0.5 rounded bg-pink-500/20 text-pink-300">Saved</span>' : ''}
+                        </div>
+                        <div class="text-[11px] text-gray-400 truncate">${item.timestamp} • ${item.endpoint || 'HTTP GET'}</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="loadSavedScript(${idx}, '${type}')" class="px-3 py-1.5 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-bold text-xs transition-all flex items-center gap-1">
+                            <span>Buka</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </button>
+                        <button onclick="deleteSavedItem(${idx}, '${type}')" class="p-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 transition-all" title="Hapus item">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(el);
+            });
+            lucide.createIcons();
+        }
+
+        function loadSavedScript(idx, type) {
+            let key = type === 'fav' ? 'palryzx_favorites' : 'palryzx_history';
+            let items = JSON.parse(localStorage.getItem(key) || "[]");
+            const item = items[idx];
+            if (item && item.code) {
+                displayScriptInViewer(item.code, 15, item.endpoint || "LocalStorage Buffer");
+                showToast("Memuat script dari penyimpanan lokal", "success");
+            }
+        }
+
+        function deleteSavedItem(idx, type) {
+            let key = type === 'fav' ? 'palryzx_favorites' : 'palryzx_history';
+            let items = JSON.parse(localStorage.getItem(key) || "[]");
+            items.splice(idx, 1);
+            localStorage.setItem(key, JSON.stringify(items));
+            switchHistoryTab(type);
+            updateFavoriteBadge();
+            showToast("Item berhasil dihapus.", "info");
+        }
+
+        function clearHistoryData() {
+            if (confirm("Apakah Anda yakin ingin menghapus semua riwayat dan favorit yang tersimpan?")) {
+                localStorage.removeItem('palryzx_favorites');
+                localStorage.removeItem('palryzx_history');
+                switchHistoryTab(AppState.activeTab);
+                updateFavoriteBadge();
+                showToast("Semua data riwayat lokal dibersihkan.", "info");
+            }
+        }
+
+        /*************************************************************************
+         * 10. UI UTILITIES & ANIMATIONS (TOAST, FAQ, MODAL, CONFETTI, RIPPLE)
+         *************************************************************************/
+        function showToast(message, type = "info") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            let bgClass = "bg-gray-900/95 border-cyan-500/40 text-cyan-300";
+            let iconName = "info";
+            if (type === "success") {
+                bgClass = "bg-gray-900/95 border-green-500/40 text-green-300";
+                iconName = "check-circle-2";
+            } else if (type === "error") {
+                bgClass = "bg-gray-900/95 border-red-500/40 text-red-300";
+                iconName = "alert-circle";
+            }
+
+            toast.className = `glass-card ${bgClass} border px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3 text-xs font-code pointer-events-auto transform transition-all duration-300 translate-y-2 opacity-0`;
+            toast.innerHTML = `
+                <i data-lucide="${iconName}" class="w-5 h-5 flex-shrink-0"></i>
+                <span class="flex-grow font-medium text-white">${message}</span>
+            `;
+
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            // Animate in
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            });
+
+            // Animate out after 3.5s
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        function openModal(id) {
+            const m = document.getElementById(id);
+            if (!m) return;
+            m.classList.remove('hidden');
+            m.classList.add('flex');
+            requestAnimationFrame(() => {
+                m.classList.remove('opacity-0', 'pointer-events-none');
+            });
+        }
+
+        function closeModal(id) {
+            const m = document.getElementById(id);
+            if (!m) return;
+            m.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                if (m) {
+                    m.classList.remove('flex');
+                    m.classList.add('hidden');
+                }
+            }, 300);
+        }
+
+        function toggleFAQ(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('svg');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function filterFAQ() {
+            const q = document.getElementById('faq-search').value.toLowerCase();
+            const items = document.querySelectorAll('.faq-item');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(q)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleMobileMenu() {
+            const m = document.getElementById('mobile-menu');
+            m.classList.toggle('hidden');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function triggerConfetti() {
+            if (window.confetti) {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#00f0ff', '#a855f7', '#ec4899', '#22c55e']
+                });
+            }
+        }
+
+        /*************************************************************************
+         * 11. INTERACTIVE BACKGROUND PARTICLE CANVAS
+         *************************************************************************/
+        function initParticleCanvas() {
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const particleCount = window.innerWidth < 768 ? 35 : 70;
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.7,
+                    vy: (Math.random() - 0.5) * 0.7,
+                    radius: Math.random() * 2 + 1,
+                    color: Math.random() > 0.5 ? '#00f0ff' : '#a855f7'
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    let p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > width) p.vx *= -1;
+                    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.globalAlpha = 0.5;
+                    ctx.fill();
+
+                    // Draw connecting lines
+                    for (let j = i + 1; j < particles.length; j++) {
+                        let p2 = particles[j];
+                        let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                        if (dist < 110) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = p.color;
+                            ctx.globalAlpha = (1 - dist / 110) * 0.2;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        /*************************************************************************
+         * 12. CUSTOM DESKTOP CURSOR & RIPPLE CLICK EFFECTS
+         *************************************************************************/
+        function initCustomCursor() {
+            if (window.matchMedia("(pointer: coarse)").matches) return; // Ignore on mobile
+
+            const dot = document.getElementById('cursor-dot');
+            const ring = document.getElementById('cursor-ring');
+
+            if (!dot || !ring) return;
+
+            window.addEventListener('mousemove', (e) => {
+                dot.style.left = `${e.clientX}px`;
+                dot.style.top = `${e.clientY}px`;
+                
+                // Add slight smooth delay for ring
+                requestAnimationFrame(() => {
+                    ring.style.left = `${e.clientX}px`;
+                    ring.style.top = `${e.clientY}px`;
+                });
+            });
+
+            document.addEventListener('mouseover', (e) => {
+                if (e.target.closest('a, button, input, .hover-trigger')) {
+                    document.body.classList.add('cursor-hover');
+                } else {
+                    document.body.classList.remove('cursor-hover');
+                }
+            });
+
+            // Ripple click handler
+            document.addEventListener('click', (e) => {
+                const btn = e.target.closest('.ripple');
+                if (btn) {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const span = document.createElement('span');
+                    span.className = 'ripple-span';
+                    span.style.left = `${x}px`;
+                    span.style.top = `${y}px`;
+                    span.style.width = span.style.height = `${Math.max(rect.width, rect.height)}px`;
+                    span.style.marginLeft = span.style.marginTop = `-${Math.max(rect.width, rect.height) / 2}px`;
+                    btn.appendChild(span);
+                    setTimeout(() => span.remove(), 600);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
